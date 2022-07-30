@@ -1,0 +1,17 @@
+.form {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 4rem;
+
+  &__actions {
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+  }
+
+  .error {
+    color: red;
+    font-size: 0.8rem;
+  }
+}

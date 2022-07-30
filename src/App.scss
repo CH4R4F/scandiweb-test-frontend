@@ -1,0 +1,26 @@
+.App {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.btn {
+  color: #1e1e1e;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border: 2px solid #1e1e1e;
+  border-radius: 2px;
+  background-color: transparent;
+  cursor: pointer;
+
+  &--primary {
+    color: #fff;
+    background-color: #1e1e1e;
+  }
+}
+
+ul {
+  list-style: none;
+}

@@ -1,0 +1,17 @@
+.product__list {
+  padding: 1.5rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 200px);
+  grid-gap: 2rem;
+}
+
+.placeholder {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-size: clamp(2.5rem, 3.4vw, 4rem);
+  font-weight: bold;
+  color: #1e1e1eac;
+}

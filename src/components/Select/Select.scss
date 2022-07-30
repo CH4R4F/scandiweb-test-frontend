@@ -1,0 +1,11 @@
+.form__select {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+
+  select {
+    padding: 0.7rem;
+    font-size: 1.2rem;
+  }
+}

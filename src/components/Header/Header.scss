@@ -1,0 +1,29 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem 1.2rem;
+  gap: 1rem;
+  border-bottom: 2px solid #1e1e1e;
+
+  &__btn {
+    display: flex;
+    gap: 1rem;
+    white-space: nowrap;
+  }
+
+  @media screen and (max-width: 650px) {
+    flex-direction: column;
+
+    &__title {
+      font-size: 1.5rem;
+      white-space: nowrap;
+    }
+  }
+
+  @media screen and (max-width: 375px) {
+    &__btn {
+      flex-direction: column;
+    }
+  }
+}

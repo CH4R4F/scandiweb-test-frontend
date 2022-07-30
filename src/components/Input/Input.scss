@@ -1,0 +1,11 @@
+.form__row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+
+  input {
+    padding: 0.7rem;
+    font-size: 1.2rem;
+  }
+}

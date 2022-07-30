@@ -1,0 +1,9 @@
+.product__card {
+  padding: 1rem;
+  border: 2px solid #1e1e1e;
+  flex: 1 1 200px;
+
+  &__info {
+    text-align: center;
+  }
+}
