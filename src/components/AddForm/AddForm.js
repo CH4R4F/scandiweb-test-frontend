@@ -73,7 +73,7 @@ const AddForm = () => {
     if (submitted) {
       navigate("/");
     }
-  }, [submitted]);
+  }, [submitted, navigate]);
 
   return (
     <form className="form" onSubmit={handleSubmit}>

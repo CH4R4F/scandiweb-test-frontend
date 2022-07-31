@@ -1,104 +1,38 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
+
 import Header from "../components/Header/Header";
 import Products from "../components/Products/Products";
 
-const dumpData = [
-  {
-    sku: "12345",
-    name: "Product 1",
-    price: "$10.00",
-    attr: "Color: Red, Size: M",
-  },
-  {
-    sku: "67890",
-    name: "Product 2",
-    price: "$20.00",
-    attr: "Color: Blue, Size: L",
-  },
-  {
-    sku: "11111",
-    name: "Product 3",
-    price: "$30.00",
-    attr: "Color: Green, Size: XL",
-  },
-  {
-    sku: "12345",
-    name: "Product 1",
-    price: "$10.00",
-    attr: "Color: Red, Size: M",
-  },
-  {
-    sku: "67890",
-    name: "Product 2",
-    price: "$20.00",
-    attr: "Color: Blue, Size: L",
-  },
-  {
-    sku: "11111",
-    name: "Product 3",
-    price: "$30.00",
-    attr: "Color: Green, Size: XL",
-  },
-  {
-    sku: "12345",
-    name: "Product 1",
-    price: "$10.00",
-    attr: "Color: Red, Size: M",
-  },
-  {
-    sku: "67890",
-    name: "Product 2",
-    price: "$20.00",
-    attr: "Color: Blue, Size: L",
-  },
-  {
-    sku: "11111",
-    name: "Product 3",
-    price: "$30.00",
-    attr: "Color: Green, Size: XL",
-  },
-  {
-    sku: "12345",
-    name: "Product 1",
-    price: "$10.00",
-    attr: "Color: Red, Size: M",
-  },
-  {
-    sku: "67890",
-    name: "Product 2",
-    price: "$20.00",
-    attr: "Color: Blue, Size: L",
-  },
-  {
-    sku: "11111",
-    name: "Product 3",
-    price: "$30.00",
-    attr: "Color: Green, Size: XL",
-  },
-  {
-    sku: "12345",
-    name: "Product 1",
-    price: "$10.00",
-    attr: "Color: Red, Size: M",
-  },
-  {
-    sku: "67890",
-    name: "Product 2",
-    price: "$20.00",
-    attr: "Color: Blue, Size: L",
-  },
-  {
-    sku: "11111",
-    name: "Product 3",
-    price: "$30.00",
-    attr: "Color: Green, Size: XL",
-  },
-];
-
 const ProductList = () => {
+  const [productsList, setProductsList] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [checked, setChecked] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios("https://scandiwebcharaf.000webhostapp.com/api/products");
+      setProductsList(result.data);
+      setLoading(false);
+    };
+    fetchData();
+  }, [loading]);
+
   return (
     <div>
-      <Header text="Product List" home />
-      <Products products={dumpData} />
+      <Header
+        text="Product List"
+        home={true}
+        checked={checked}
+        setChecked={setChecked}
+        setLoading={setLoading}
+      />
+      <Products
+        products={productsList}
+        loading={loading}
+        checked={checked}
+        setChecked={setChecked}
+      />
     </div>
   );
 };

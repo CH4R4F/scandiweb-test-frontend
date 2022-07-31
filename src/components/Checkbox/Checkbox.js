@@ -1,6 +1,6 @@
 import "./Checkbox.scss";
 
-const Checkbox = ({ id }) => {
+const Checkbox = ({ id, handleCheck }) => {
   return (
     <>
       <svg className="checkbox-symbol">
@@ -15,7 +15,7 @@ const Checkbox = ({ id }) => {
       </svg>
 
       <div className="checkbox-container">
-        <input className="checkbox-input" id={id} type="checkbox" />
+        <input className="checkbox-input" id={id} type="checkbox" onChange={handleCheck} />
         <label className="checkbox" htmlFor={id}>
           <span>
             <svg width="12px" height="10px">

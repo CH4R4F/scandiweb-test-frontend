@@ -1,11 +1,14 @@
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-
 async function saveProduct(data) {
   let productData = formateData(data);
-  const res = await axios
-    .post("http://localhost/api/products", productData)
-    .then((res) => res.data);
+  // example using fetch
+  const res = await fetch("https://scandiwebcharaf.000webhostapp.com/api/products", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(productData),
+    mode: "no-cors",
+  });
 
   return res.status === 200;
 }
