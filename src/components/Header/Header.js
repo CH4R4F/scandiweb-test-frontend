@@ -27,10 +27,10 @@ const Header = ({ text, home, checked, setChecked, setLoading }) => {
       {home && (
         <div className="header__btn">
           <Link to="/add-product">
-            <button className="btn btn--primary">Add Product</button>
+            <button className="btn btn--primary">ADD</button>
           </Link>
           <button className="btn" onClick={deleteChecked}>
-            Mass Delete
+            MASS DELETE
           </button>
         </div>
       )}
