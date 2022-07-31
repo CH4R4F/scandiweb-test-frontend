@@ -20,8 +20,14 @@ const Header = ({ text, home, setLoading }) => {
         mode: "no-cors",
       });
     }
+  }
 
-    setLoading(true);
+  function deleteCheckedCards() {
+    let cards = [...document.querySelectorAll(".delete-checkbox")]
+      .filter((e) => e.checked)
+      .map((e) => e.parentElement.parentElement);
+
+    cards.forEach((e) => e.remove());
   }
 
   return (
@@ -33,7 +39,13 @@ const Header = ({ text, home, setLoading }) => {
           <Link to="/add-product">
             <button className="btn btn--primary">ADD</button>
           </Link>
-          <button className="btn" onClick={deleteChecked}>
+          <button
+            className="btn"
+            onClick={() => {
+              deleteChecked();
+              deleteCheckedCards();
+            }}
+          >
             MASS DELETE
           </button>
         </div>
