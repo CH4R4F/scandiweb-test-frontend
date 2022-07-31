@@ -16,7 +16,7 @@ const ProductList = () => {
       setLoading(false);
     };
     fetchData();
-  }, [loading]);
+  }, []);
 
   return (
     <div>

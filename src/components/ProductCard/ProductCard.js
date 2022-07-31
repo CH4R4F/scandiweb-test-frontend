@@ -13,7 +13,7 @@ const ProductCard = ({ product, setChecked, checked }) => {
   }
 
   return (
-    <div className="product__card">
+    <div className="product__card" id={product.product_id}>
       <Checkbox id={product.product_sku} handleCheck={handleCheck} />
 
       <ul className="product__card__info">
