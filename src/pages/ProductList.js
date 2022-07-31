@@ -3,6 +3,7 @@ import axios from "axios";
 
 import Header from "../components/Header/Header";
 import Products from "../components/Products/Products";
+import Footer from "../components/Footer/Footer";
 
 const ProductList = () => {
   const [productsList, setProductsList] = useState([]);
@@ -21,6 +22,7 @@ const ProductList = () => {
     <div>
       <Header text="Product List" home={true} setLoading={setLoading} />
       <Products products={productsList} loading={loading} />
+      <Footer />
     </div>
   );
 };
