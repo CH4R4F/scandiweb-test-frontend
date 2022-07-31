@@ -22,7 +22,7 @@ const Header = ({ text, home, checked, setChecked }) => {
   // to pass the test I have to delete products manually
   function deleteCardsUi() {
     checked.forEach((id) => {
-      if (document.getElementById(id)) {
+      if (document.querySelector(`div[id="${id}"]`)) {
         document.getElementById(id).remove();
       }
     });
@@ -40,8 +40,8 @@ const Header = ({ text, home, checked, setChecked }) => {
           <button
             className="btn"
             onClick={() => {
-              deleteChecked();
               deleteCardsUi();
+              deleteChecked();
             }}
           >
             MASS DELETE
