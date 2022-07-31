@@ -95,7 +95,7 @@ const AddForm = () => {
       />
       <Input
         error={errors.price}
-        label="Price"
+        label="Price ($)"
         type="number"
         id="price"
         value={data.price}
