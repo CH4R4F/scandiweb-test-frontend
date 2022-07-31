@@ -7,7 +7,6 @@ import Products from "../components/Products/Products";
 const ProductList = () => {
   const [productsList, setProductsList] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [checked, setChecked] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,23 +15,12 @@ const ProductList = () => {
       setLoading(false);
     };
     fetchData();
-  }, []);
+  }, [loading]);
 
   return (
     <div>
-      <Header
-        text="Product List"
-        home={true}
-        checked={checked}
-        setChecked={setChecked}
-        setLoading={setLoading}
-      />
-      <Products
-        products={productsList}
-        loading={loading}
-        checked={checked}
-        setChecked={setChecked}
-      />
+      <Header text="Product List" home={true} setLoading={setLoading} />
+      <Products products={productsList} loading={loading} />
     </div>
   );
 };

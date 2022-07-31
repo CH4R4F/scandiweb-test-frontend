@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
 import "./Header.scss";
 
-const Header = ({ text, home, checked, setChecked }) => {
+const Header = ({ text, home, setLoading }) => {
   // this function runs asynchronously, so it doesn't pass "Check all the Products checkboxes and delete products" test
   async function deleteChecked() {
-    if (checked.length > 0) {
+    const checkedCard = [...document.querySelectorAll(".delete-checkbox")]
+      .filter((e) => e.checked)
+      .map((e) => e.parentElement.parentElement.id);
+
+    if (checkedCard.length > 0) {
       // I have a lot of CORS issues with this one, so I'm not checking if request was successful
       await fetch("https://scandiwebcharaf.000webhostapp.com/api/products/delete/", {
         method: "POST",
@@ -12,20 +16,12 @@ const Header = ({ text, home, checked, setChecked }) => {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
         },
-        body: JSON.stringify(checked),
+        body: JSON.stringify(checkedCard),
         mode: "no-cors",
       });
     }
-    setChecked([]);
-  }
 
-  // to pass the test I have to delete products manually
-  function deleteCardsUi() {
-    checked.forEach((id) => {
-      if (document.querySelector(`div[id="${id}"]`)) {
-        document.getElementById(id).remove();
-      }
-    });
+    setLoading(true);
   }
 
   return (
@@ -37,13 +33,7 @@ const Header = ({ text, home, checked, setChecked }) => {
           <Link to="/add-product">
             <button className="btn btn--primary">ADD</button>
           </Link>
-          <button
-            className="btn"
-            onClick={() => {
-              deleteCardsUi();
-              deleteChecked();
-            }}
-          >
+          <button className="btn" onClick={deleteChecked}>
             MASS DELETE
           </button>
         </div>

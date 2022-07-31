@@ -1,20 +1,10 @@
 import Checkbox from "../Checkbox/Checkbox";
 import "./ProductCard.scss";
 
-const ProductCard = ({ product, setChecked, checked }) => {
-  function handleCheck(e) {
-    if (e.target.checked) {
-      let checkedIds = [...checked, product.product_id];
-      setChecked(checkedIds);
-    } else {
-      let uncheckedIds = checked.filter((id) => id !== product.product_id);
-      setChecked(uncheckedIds);
-    }
-  }
-
+const ProductCard = ({ product }) => {
   return (
     <div className="product__card" id={product.product_id}>
-      <Checkbox id={product.product_sku} handleCheck={handleCheck} />
+      <Checkbox id={product.product_sku} />
 
       <ul className="product__card__info">
         <li>{product.product_sku}</li>
