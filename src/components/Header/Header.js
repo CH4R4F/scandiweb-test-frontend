@@ -17,6 +17,7 @@ const Header = ({ text, home, checked, setChecked, setLoading }) => {
       // I have a lot of CORS issues with this one, so I'm not checking if request was successful
       // I just rerender the component to update the list
       setLoading(true);
+      setChecked([]);
     }
   }
 
