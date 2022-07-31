@@ -15,7 +15,7 @@ const Checkbox = ({ id, handleCheck }) => {
       </svg>
 
       <div className="checkbox-container">
-        <input className="checkbox-input" id={id} type="checkbox" onChange={handleCheck} />
+        <input className="delete-checkbox" id={id} type="checkbox" onChange={handleCheck} />
         <label className="checkbox" htmlFor={id}>
           <span>
             <svg width="12px" height="10px">

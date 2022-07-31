@@ -76,7 +76,7 @@ const AddForm = () => {
   }, [submitted, navigate]);
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
+    <form id="product_form" className="form" onSubmit={handleSubmit}>
       <Input
         error={errors.sku}
         label="Sku"

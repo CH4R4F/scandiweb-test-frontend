@@ -3,8 +3,8 @@ import "./Select.scss";
 const Select = ({ options, value, onChange, error }) => {
   return (
     <div className="form__select">
-      <label htmlFor="type">Type</label>
-      <select id="type" name="type" value={value} onChange={onChange}>
+      <label htmlFor="productType">Type</label>
+      <select id="productType" name="type" value={value} onChange={onChange}>
         <option value="" disabled>
           Select a type
         </option>
